@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .video-player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #5c6bc0;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #3f51b5;
+    }
+  </style>
+  <title>Elegant Video Player</title>
+</head>
+<body>
+  <div class="video-player">
+    <video id="videoPlayer" controls>
+      <source src="https://drive.google.com/uc?export=download&id=1pkNlhkqAsNF-DNsFP7iRLfVnQG2Tn8Gv/preview" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="controls">
+      <button id="playButton">Play</button>
+      <button id="pauseButton">Pause</button>
+      <button id="replayButton">Replay</button>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('videoPlayer');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const replayButton = document.getElementById('replayButton');
+
+    playButton.addEventListener('click', () => {
+      video.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+      video.pause();
+    });
+
+    replayButton.addEventListener('click', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+  </script>
+</body>
+</html>
